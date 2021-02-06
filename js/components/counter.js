@@ -8,9 +8,19 @@ Reikalavimai:
 
 function counter(selector) {
    const DOM = document.querySelector(selector);
-   const number = DOM.textContent;
+   let number = parseInt(DOM.innerText);
 
-   console.log(number);
+   const timer = setInterval(function () {
+      showMeNumber(number);
+      number--;
+      if (number < 0) {
+         clearInterval(timer);
+      }
+   }, 1000);
+}
+
+function showMeNumber(num) {
+   console.log(num);
 }
 
 export { counter }
